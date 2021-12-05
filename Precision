@@ -1,0 +1,23 @@
+#define _USE_MATH_DEFINES
+#include <iomanip>
+#include <iostream>
+#include <cmath>
+    using namespace std;
+
+    int main()
+    {
+        float rad1, hgt;
+        float volcy;
+        cout << "\n\n Calculate the volume of a cylinder :\n";
+        cout << "-----------------------------------------\n";
+        cout << " Input the radius of the cylinder : ";
+        cin >> rad1;
+        cout << " Input the height of the cylinder : ";
+        cin >> hgt;
+        volcy = (M_PI * rad1 * rad1 * hgt);
+        std::cout << std::fixed;
+        std::cout << std::setprecision(4);
+        std::cout << " The volume of a cylinder is : " << volcy << endl;
+        cout << endl;
+        return 0;
+    }
