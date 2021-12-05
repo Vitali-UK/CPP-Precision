@@ -9,7 +9,8 @@
         int rad1, hgt;
         double volcy;
 
-        /* I have not used floating point number value because on large number it will not give accurate result however 
+        /* I have not used floating point number value because on large number it will 
+	 * not give accurate result however 
          * input as digits in the number absolutely
          * necessary to indicate the statistics of
          * quantity required for arithmetic mean.*/
