@@ -1,13 +1,19 @@
-#define _USE_MATH_DEFINES
 #include <iomanip>
 #include <iostream>
-#include <cmath>
+#include <cmath> 
+
     using namespace std;
 
     int main()
     {
         float rad1, hgt;
         float volcy;
+
+        /* I have used floating point number value
+         * input as digits in the number absolutely
+         * necessary to indicate the statistics of
+         * quantity required for arithmetic mean.*/
+
         cout << "\n\n Calculate the volume of a cylinder :\n";
         cout << "-----------------------------------------\n";
         cout << " Input the radius of the cylinder : ";
@@ -18,6 +24,11 @@
         std::cout << std::fixed;
         std::cout << std::setprecision(4);
         std::cout << " The volume of a cylinder is : " << volcy << endl;
+		
+	    /*Its not possible to round the number itself, because float or double
+        *aren't decimal floating point they are binary floating-point 
+        *therefore string formating used for output.*/
+			
         cout << endl;
         return 0;
     }
