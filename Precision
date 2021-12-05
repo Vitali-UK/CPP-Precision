@@ -6,8 +6,8 @@
 
     int main()
     {
-        float rad1, hgt;
-        float volcy;
+        int rad1, hgt;
+        double volcy;
 
         /* I have used floating point number value
          * input as digits in the number absolutely
