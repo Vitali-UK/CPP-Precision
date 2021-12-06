@@ -1,35 +1,32 @@
 #include <iomanip>
+#include <boost/multiprecision/cpp_dec_float.hpp>
+#include <boost/math/special_functions/gamma.hpp>
 #include <iostream>
-#include <cmath> 
 
-    using namespace std;
+using namespace std;
 
-    int main()
-    {
-        int rad1, hgt;
-        double volcy;
-
-        /* I have not used floating point number value because on large number it will 
-	 * not give accurate result however 
-         * input as digits in the number absolutely
-         * necessary to indicate the statistics of
-         * quantity required for arithmetic mean.*/
-
-        cout << "\n\n Calculate the volume of a cylinder :\n";
-        cout << "-----------------------------------------\n";
-        cout << " Input the radius of the cylinder : ";
-        cin >> rad1;
-        cout << " Input the height of the cylinder : ";
-        cin >> hgt;
-        volcy = (M_PI * rad1 * rad1 * hgt);
-        std::cout << std::fixed;
-        std::cout << std::setprecision(4);
-        std::cout << " The volume of a cylinder is : " << volcy << endl;
-		
-	    /*Its not possible to round the number itself, because float or double
-        *aren't decimal floating point they are binary floating-point 
-        *therefore string formating used for output.*/
-			
-        cout << endl;
-        return 0;
-    }
+using boost::multiprecision::cpp_dec_float_50;
+int main()
+{
+    int rad1, hgt;
+    float pi = 3.14159265359;
+    
+    cout << "\n\n Calculate the volume of a cylinder :\n";
+    cout << "-----------------------------------------\n";
+    cout << " Input the radius of the cylinder : ";
+    cin >> rad1;
+    cout << " Input the height of the cylinder : ";
+    cin >> hgt;
+    const cpp_dec_float_50 r_mp(cpp_dec_float_50(rad1) * rad1 * hgt);
+    const cpp_dec_float_50 volcy = (pi * r_mp);
+    
+   /* I have used boost library to achieve precision number value
+     * input as digits in the number absolutely
+     * necessary to indicate the statistics of
+     * quantity required .*/
+    
+    std::cout << boost::math::tgamma(cpp_dec_float_50(volcy)) << std::endl;
+        
+    cout << endl;
+    return 0;
+}
