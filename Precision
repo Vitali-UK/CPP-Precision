@@ -1,32 +1,56 @@
-#include <iomanip>
-#include <boost/multiprecision/cpp_dec_float.hpp>
-#include <boost/math/special_functions/gamma.hpp>
-#include <iostream>
 
+#include <iostream>
+#include <boost/multiprecision/cpp_dec_float.hpp>
+
+using boost::multiprecision::cpp_dec_float_100;
 using namespace std;
 
-using boost::multiprecision::cpp_dec_float_50;
+
+int Surf(int raduis, int lenght);
+int getTotal(int Surf);
+
+int Surf(int raduis, int lenght)
+{
+    int surfarea;
+
+    surfarea = (raduis * raduis * lenght);
+
+    cout << "Surface area of barrel: " << surfarea << endl;
+    return surfarea;
+}
+
+
+int getTotal(int Surf)
+{
+    double pi = 2 * acos(0.0);
+    float volume;
+    volume = Surf * pi;
+
+    cout << "Total volume of barrel: " << volume << endl;
+    return volume;
+}
+
 int main()
 {
-    int rad1, hgt;
-    float pi = 3.14159265359;
-    
+    int raduis;
+    int length;
+
     cout << "\n\n Calculate the volume of a cylinder :\n";
     cout << "-----------------------------------------\n";
     cout << " Input the radius of the cylinder : ";
-    cin >> rad1;
+    cin >> raduis;
     cout << " Input the height of the cylinder : ";
-    cin >> hgt;
-    const cpp_dec_float_50 r_mp(cpp_dec_float_50(rad1) * rad1 * hgt);
-    const cpp_dec_float_50 volcy = (pi * r_mp);
+    cin >> length;
+
     
-   /* I have used boost library to achieve precision number value
-     * input as digits in the number absolutely
-     * necessary to indicate the statistics of
-     * quantity required .*/
+     int rfinal = Surf(raduis, length);
+
+     std::cout
+     << std::setprecision(std::numeric_limits<cpp_dec_float_100>::digits10)
+     << getTotal(rfinal)
+     << std::endl;
     
-    std::cout << boost::math::tgamma(cpp_dec_float_50(volcy)) << std::endl;
-        
     cout << endl;
+
     return 0;
 }
