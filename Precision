@@ -3,7 +3,7 @@
 #include <boost/multiprecision/cpp_dec_float.hpp>
 
 using boost::multiprecision::cpp_dec_float_100;
-using namespace std;
+
 
 
 int Surf(int raduis);
@@ -15,7 +15,7 @@ int Surf(int raduis )
     double pi = 3.14159265359;
     surfarea = (pi*(raduis * raduis) );
 
-    cout << "Surface area of barrel: " << surfarea << endl;
+    std::cout << "Surface area of barrel: " << surfarea << endl;
     return surfarea;
 }
 
@@ -26,7 +26,7 @@ int getTotal(int Surf, int height)
     double volume;
     volume = Surf * height;
 
-    cout << "Total volume of barrel: " << volume << endl;
+   std::cout << "Total volume of barrel: " << volume << endl;
     return volume;
 }
 
@@ -35,12 +35,12 @@ int main()
     int raduis;
     int height;
 
-    cout << "\n\n Calculate the volume of a cylinder :\n";
-    cout << "-----------------------------------------\n";
-    cout << " Input the radius of the cylinder : ";
-    cin >> raduis;
-    cout << " Input the height of the cylinder : ";
-    cin >> height;
+    std::cout << "\n\n Calculate the volume of a cylinder :\n";
+    std::cout << "-----------------------------------------\n";
+    std::cout << " Input the radius of the cylinder : ";
+    std::cin >> raduis;
+    std::cout << " Input the height of the cylinder : ";
+    std::cin >> height;
 
     
      int rfinal = Surf(raduis);
@@ -50,7 +50,7 @@ int main()
      << getTotal(rfinal,height)
      << std::endl;
     
-    cout << endl;
+    std::cout << endl;
 
     return 0;
 }
